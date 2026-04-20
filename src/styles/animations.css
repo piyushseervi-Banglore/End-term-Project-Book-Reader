@@ -1,0 +1,150 @@
+/* ============================================================
+   BookReader — Animations & Keyframes
+   ============================================================ */
+
+/* Fade in */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Fade up */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Fade down */
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Slide in from left */
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-24px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* Slide in from right */
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(24px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* Scale in */
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.92); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* Pulse glow */
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 20px rgba(124, 106, 247, 0.2); }
+  50%       { box-shadow: 0 0 40px rgba(124, 106, 247, 0.4); }
+}
+
+/* AI pulse */
+@keyframes aiPulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(78, 205, 196, 0.15); }
+  50%       { box-shadow: 0 0 40px rgba(78, 205, 196, 0.35); }
+}
+
+/* Typing dots */
+@keyframes typingBounce {
+  0%, 80%, 100% { transform: translateY(0); opacity: 0.4; }
+  40%            { transform: translateY(-6px); opacity: 1; }
+}
+
+/* Shimmer loading */
+@keyframes shimmer {
+  from { background-position: -200% 0; }
+  to   { background-position: 200% 0; }
+}
+
+/* Spin */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* Page turn */
+@keyframes pageTurn {
+  0%   { opacity: 0; transform: scale(0.97) translateY(8px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+/* Float */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-8px); }
+}
+
+/* Particle drift */
+@keyframes drift {
+  from { transform: translateY(0) rotate(0deg); opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 1; }
+  to   { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+}
+
+/* Gradient shift */
+@keyframes gradientShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Cursor blink */
+@keyframes cursorBlink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+/* ============================================================
+   Animation Utility Classes
+   ============================================================ */
+.animate-fadeIn    { animation: fadeIn var(--transition-base) forwards; }
+.animate-fadeUp    { animation: fadeUp var(--transition-slow) forwards; }
+.animate-fadeDown  { animation: fadeDown var(--transition-slow) forwards; }
+.animate-slideLeft { animation: slideInLeft var(--transition-base) forwards; }
+.animate-slideRight{ animation: slideInRight var(--transition-base) forwards; }
+.animate-scaleIn   { animation: scaleIn var(--transition-base) forwards; }
+.animate-pageTurn  { animation: pageTurn 300ms cubic-bezier(0.4, 0, 0.2, 1) forwards; }
+.animate-spin      { animation: spin 1s linear infinite; }
+.animate-float     { animation: float 3s ease-in-out infinite; }
+.animate-pulse-glow { animation: pulseGlow 2s ease-in-out infinite; }
+.animate-ai-pulse  { animation: aiPulse 2s ease-in-out infinite; }
+
+/* Typing indicator dots */
+.typing-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent-secondary);
+  animation: typingBounce 1.2s ease-in-out infinite;
+}
+.typing-dot:nth-child(2) { animation-delay: 0.2s; }
+.typing-dot:nth-child(3) { animation-delay: 0.4s; }
+
+/* AI streaming cursor */
+.stream-cursor::after {
+  content: '▋';
+  color: var(--accent-secondary);
+  animation: cursorBlink 0.8s step-end infinite;
+  margin-left: 1px;
+}
+
+/* Shimmer skeleton */
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--bg-card) 25%,
+    var(--bg-hover) 50%,
+    var(--bg-card) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: var(--radius-sm);
+}
